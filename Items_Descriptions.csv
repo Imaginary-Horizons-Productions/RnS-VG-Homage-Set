@@ -1,4 +1,4 @@
 key,level,English,Japanese,Chinese
 ,,,,
-it_master_sword,0,"While you are at full HP, your Primary shoots a sword beam that deals [VAR0] damage to enemies.","While you are at full HP, your Primary shoots a sword beam that deals [VAR0] damage to enemies.","While you are at full HP, your Primary shoots a sword beam that deals [VAR0] damage to enemies."
+it_master_sword,0,"While you are at full HP, your Primary shoots a sword beam that deals [STR] damage to enemies.","While you are at full HP, your Primary shoots a sword beam that deals [VAR0] damage to enemies.","While you are at full HP, your Primary shoots a sword beam that deals [VAR0] damage to enemies."
 it_phoenix_down,0,Revives,Revives,Revives
