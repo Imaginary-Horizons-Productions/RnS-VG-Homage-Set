@@ -2,3 +2,4 @@ key,level,English,Japanese,Chinese
 ,,,,
 it_master_sword,0,"While you are at full HP, your Primary shoots a sword beam that deals [STR] damage to enemies.","While you are at full HP, your Primary shoots a sword beam that deals [STR] damage to enemies.","While you are at full HP, your Primary shoots a sword beam that deals [STR] damage to enemies."
 it_phoenix_down,0,Revives,Revives,Revives
+it_halo_shield,0,"Your max HP is reduced by 1.#When you use your Defensive, gain [GRANITESKIN].#Starts battle on cooldown.#This item's cooldown is set to [CD] when you are shielded or take damage.","Your max HP is reduced by 1.#When you use your Defensive, gain [GRANITESKIN].#Starts battle on cooldown.#This item's cooldown is set to [CD] when you are shielded or take damage.","Your max HP is reduced by 1.#When you use your Defensive, gain [GRANITESKIN].#Starts battle on cooldown.#This item's cooldown is set to [CD] when you are shielded or take damage."
