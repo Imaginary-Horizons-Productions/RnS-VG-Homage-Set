@@ -1,7 +1,7 @@
 spriteNumber,14
 
 
-it_master_sword,0
+it_life_sword,0
 trigger,hotbarUsedProc
 target,ttrg_player_self
 condition,tcond_hb_primary
@@ -11,7 +11,7 @@ set,tset_strength_def
 addPattern,ipat_hblade_1,number,3,delay,250
 
 
-it_phoenix_down,1
+it_phoenix_feather,1
 trigger,onSquarePickup,tcond_square_self
 target,ttrg_player_self
 set,tset_uservar,u_x,tp0_xpos
@@ -99,7 +99,7 @@ target,ttrg_players_prune,u_d#,<=,u_radsq
 addPattern,ipat_heal_light,amount,1
 
 
-it_halo_shield,2
+it_heavy_lightshield,2
 trigger,hotbarUsedProc,tcond_hb_defensive
 condition,tcond_hb_available
 quickPattern,tpat_hb_run_cooldown
@@ -120,7 +120,7 @@ target,ttrg_hotbarslot_self
 quickPattern,tpat_hb_run_cooldown
 
 
-it_megabuster,3
+it_omegabuster,3
 trigger,autoStart,tcond_hb_auto_pl
 ## vars0 = is charged?
 quickPattern,tpat_hb_run_cooldown
@@ -140,7 +140,7 @@ target,ttrg_hotbarslots_self_weapontype,weaponType.primary
 quickPattern,tpat_hb_set_var,varIndex,0,amount,0
 
 
-it_shovel,4
+it_treasure_digger,4
 trigger,onSquarePickup
 ## sqVar0 = is hotbar glowing?
 ## sqVar1 = gold accumulated
