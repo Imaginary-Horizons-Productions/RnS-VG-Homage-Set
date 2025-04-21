@@ -23,7 +23,7 @@ quickPattern,tpat_hb_square_set_var,varIndex,2,amount,u_y
 quickPattern,tpat_hb_square_set_var,varIndex,3,amount,0
 
 trigger,autoStart,tcond_hb_auto_pl
-quickPattern,tpat_hb_set_var,varIndex,0,amount,1
+quickPattern,tpat_hb_set_var,varIndex,0,amount,0,"set true for debugging solo",0
 
 trigger,standingStillBattle
 condition,tcond_hb_available
@@ -42,7 +42,6 @@ set,tset_uservar_each_target_player,u_d#,u_d#,*,u_d#
 set,tset_uservar_each_target_player,u_d#,u_dx#,+,u_d#
 target,ttrg_players_prune,u_d#,<=,u_radsq
 condition,tcond_player_target_count,>,0
-target,ttrg_hotbarslot_self
 set,tset_uservar_sqvar,u_enabled,3
 condition,tcond_equal,u_enabled,0
 target,ttrg_player_self
@@ -67,7 +66,6 @@ quickPattern,tpat_hb_square_set_var,varIndex,0,amount,0
 quickPattern,tpat_hb_square_set_var,varIndex,1,amount,tp0_xpos
 quickPattern,tpat_hb_square_set_var,varIndex,2,amount,tp0_ypos
 quickPattern,tpat_hb_square_set_var,varIndex,3,amount,0
-target,ttrg_player_self
 condition,tcond_eval,u_enabled,>,0
 condition,tcond_equal,u_lastx,tp0_xpos
 condition,tcond_equal,u_lasty,tp0_ypos
@@ -80,22 +78,17 @@ set,tset_uservar_each_target_player,u_d#,u_d#,*,u_d#
 set,tset_uservar_each_target_player,u_d#,u_dx#,+,u_d#
 target,ttrg_players_prune,u_d#,<=,u_radsq
 condition,tcond_player_target_count,>,0
-target,ttrg_hotbarslot_self
 quickPattern,tpat_hb_square_set_var,varIndex,0,amount,3
 quickPattern,tpat_hb_square_set_var,varIndex,3,amount,1
 condition,tcond_eval,u_count,>,0
 set,tset_uservar,u_count,u_count,-,1
 quickPattern,tpat_hb_square_set_var,varIndex,0,amount,u_count
 condition,tcond_eval,u_count,<,1
-target,ttrg_hotbarslot_self
 quickPattern,tpat_hb_square_set_var,varIndex,0,amount,0
 quickPattern,tpat_hb_square_set_var,varIndex,3,amount,0
 quickPattern,tpat_hb_run_cooldown
 quickPattern,tpat_hb_cdloot_proc
 quickPattern,tpat_hb_flash_item
-target,ttrg_players_ally_include_ko
-target,ttrg_players_prune,tp#_hp,<,u_hp
-target,ttrg_players_prune,u_d#,<=,u_radsq
 addPattern,ipat_heal_light,amount,1
 
 
@@ -122,33 +115,30 @@ quickPattern,tpat_hb_run_cooldown
 
 it_omegabuster,3
 trigger,autoStart,tcond_hb_auto_pl
-## vars0 = is charged?
+"vars0 = is charged?"
 quickPattern,tpat_hb_run_cooldown
-target,ttrg_hotbarslots_self_weapontype,weaponType.primary
+target,ttrg_hotbarslots_self
 quickPattern,tpat_hb_set_var,varIndex,0,amount,0
 
-<<<<<<< Updated upstream
-trigger,hotbarUsed,tcond_hb_self
-target,ttrg_hotbarslots_self_weapontype,weaponType.primary
-=======
 trigger,regenTick,tcond_hb_available
 target,ttrg_hotbarslots_self
->>>>>>> Stashed changes
 condition,tcond_equal,ths0_vars0,0
+quickPattern,tpat_hb_cdloot_proc
 quickPattern,tpat_hb_set_var,varIndex,0,amount,1
 quickPattern,tpat_hb_flash_item
+target,ttrg_hotbarslots_self_weapontype,weaponType.primary
 quickPattern,tpat_hb_charge,num,1,maxNum,1,type,chargeTypes.omegacharge
 
 trigger,hotbarUsedProc,tcond_hb_primary
 quickPattern,tpat_hb_run_cooldown
-target,ttrg_hotbarslots_self_weapontype,weaponType.primary
+target,ttrg_hotbarslots_self
 quickPattern,tpat_hb_set_var,varIndex,0,amount,0
 
 
 it_treasure_digger,4
 trigger,onSquarePickup
-## sqVar0 = is hotbar glowing?
-## sqVar1 = gold accumulated
+"sqVar0 = is hotbar glowing?"
+"sqVar1 = gold accumulated"
 target,ttrg_hotbarslot_self
 quickPattern,tpat_hb_square_set_var,varIndex,1,amount,0
 
@@ -179,8 +169,8 @@ addPattern,ipat_topaz_charm,amount,u_total
 
 it_blob_capsule,5
 trigger,onSquarePickup
-## sqVar0 = next ability index
-## sqVar1 = was charged this proc
+"sqVar0 = next ability index"
+"sqVar1 = was charged this proc"
 condition,tcond_square_self
 target,ttrg_hotbarslot_self
 quickPattern,tpat_hb_square_set_var,varIndex,1,amount,0
@@ -324,14 +314,13 @@ quickPattern,tpat_hb_square_set_var,varIndex,2,amount,0
 
 trigger,autoStart
 target,ttrg_hotbarslot_self
-quickPattern,tpat_hb_run_cooldown
 set,tset_uservar_random_range,u_x,200,1700
 set,tset_uservar_random_range,u_y,200,900
 quickPattern,tpat_hb_square_set_var,varIndex,1,amount,u_x
 quickPattern,tpat_hb_square_set_var,varIndex,2,amount,u_y
 
 trigger,regenTick
-condition,tcond_true,0,//true for debug
+condition,tcond_true,0,"set true for debugging hidden position"
 target,ttrg_players_none
 set,tset_uservar_sqvar,u_x,1
 set,tset_uservar_sqvar,u_y,2
