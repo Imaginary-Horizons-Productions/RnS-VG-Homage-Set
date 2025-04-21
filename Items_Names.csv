@@ -1,10 +1,10 @@
 key,level,English,Japanese,Chinese
 ,,,,
-it_master_sword,0,Master Sword,Master Sword,Master Sword
-it_phoenix_down,0,Phoenix Feather,Phoenix Feather,Phoenix Feather
-it_halo_shield,0,Heavy Lightshield,Heavy Lightshield,Heavy Lightshield
-it_megabuster,0,Omega Buster,Omega Buster,Omega Buster
-it_shovel,0,Treasure Digger,Treasure Digger,Treasure Digger
+it_life_sword,0,Life Sword,Life Sword,Life Sword
+it_phoenix_feather,0,Phoenix Feather,Phoenix Feather,Phoenix Feather
+it_heavy_lightshield,0,Heavy Lightshield,Heavy Lightshield,Heavy Lightshield
+it_omegabuster,0,Omega Buster,Omega Buster,Omega Buster
+it_treasure_digger,0,Treasure Digger,Treasure Digger,Treasure Digger
 it_blob_capsule,0,Blob Capsule,Blob Capsule,Blob Capsule
 it_bunny_thumpers,0,Bunny Thumpers,Bunny Thumpers,Bunny Thumpers
 it_xp_pellet,0,XP Pellet,XP Pellet,XP Pellet
