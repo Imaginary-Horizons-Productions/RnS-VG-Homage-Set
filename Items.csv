@@ -173,11 +173,23 @@ it_blob_capsule,5
 trigger,onSquarePickup
 "sqVar0 = next ability index"
 "sqVar1 = was charged this proc"
+"sqVar2 = is disabled while out of combat"
 condition,tcond_square_self
-target,ttrg_hotbarslot_self
+"tpat_hb_square_set_var implicitly targets the recieving loot"
 quickPattern,tpat_hb_square_set_var,varIndex,1,amount,0
+quickPattern,tpat_hb_square_set_var,varIndex,2,amount,1
+
+trigger,battleStart0
+"tpat_hb_square_set_var and tpat_hb_run_cooldown_ext implicitly target the recieving loot"
+quickPattern,tpat_hb_square_set_var,varIndex,2,amount,0
+quickPattern,tpat_hb_run_cooldown_ext,length,1000
+
+trigger,battleEnd1
+"tpat_hb_square_set_var implicitly targets the recieving loot"
+quickPattern,tpat_hb_square_set_var,varIndex,2,amount,1
 
 trigger,hotbarUsed,tcond_hb_self
+condition,tcond_hb_check_square_var,2,0
 condition,tcond_hb_check_square_var,0,2
 quickPattern,tpat_hb_square_set_var,varIndex,0,amount,0
 quickPattern,tpat_hb_square_set_var,varIndex,1,amount,1
@@ -188,6 +200,7 @@ set,tset_colorpalette,343
 addPattern,ipat_hydrous_blob
 
 trigger,hotbarUsed2,tcond_hb_self
+condition,tcond_hb_check_square_var,2,0
 condition,tcond_hb_check_square_var,1,0
 condition,tcond_hb_check_square_var,0,1
 quickPattern,tpat_hb_square_set_var,varIndex,0,amount,2
@@ -199,6 +212,7 @@ set,tset_colorpalette,323
 addPattern,ipat_hydrous_blob
 
 trigger,hotbarUsed3,tcond_hb_self
+condition,tcond_hb_check_square_var,2,0
 condition,tcond_hb_check_square_var,1,0
 condition,tcond_hb_check_square_var,0,0
 quickPattern,tpat_hb_square_set_var,varIndex,0,amount,1
