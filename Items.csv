@@ -17,6 +17,7 @@ target,ttrg_player_self
 set,tset_uservar,u_x,tp0_xpos
 set,tset_uservar,u_y,tp0_ypos
 target,ttrg_hotbarslot_self
+"sq0 = countdown, sq1 = lastx, sq2 = lasty, sq3 = enabled"
 quickPattern,tpat_hb_square_set_var,varIndex,0,amount,0
 quickPattern,tpat_hb_square_set_var,varIndex,1,amount,u_x
 quickPattern,tpat_hb_square_set_var,varIndex,2,amount,u_y
@@ -26,8 +27,9 @@ trigger,autoStart,tcond_hb_auto_pl
 quickPattern,tpat_hb_set_var,varIndex,0,amount,0,"set true for debugging solo",0
 
 trigger,standingStillBattle
+"enable by standing still, only enable when there's a valid target"
 condition,tcond_hb_available
-set,tset_uservar,u_radsq,100,*,100
+set,tset_uservar,u_radsq,150,*,150
 target,ttrg_hotbarslot_self
 target,ttrg_player_self
 set,tset_uservar_switch,u_x,ths0_vars0,tp0_xpos,1,980
@@ -48,11 +50,11 @@ target,ttrg_player_self
 quickPattern,tpat_hb_square_set_var,varIndex,1,amount,tp0_xpos
 quickPattern,tpat_hb_square_set_var,varIndex,2,amount,tp0_ypos
 quickPattern,tpat_hb_square_set_var,varIndex,3,amount,1
-quickPattern,tpat_hb_flash_item
 
 trigger,regenTick
+"proceed by standing still, only proceed when there's still a valid target"
 condition,tcond_hb_available
-set,tset_uservar,u_radsq,100,*,100
+set,tset_uservar,u_radsq,150,*,150
 target,ttrg_player_self
 set,tset_uservar_switch,u_x,ths0_vars0,tp0_xpos,1,980
 set,tset_uservar_switch,u_y,ths0_vars0,tp0_ypos,1,540
@@ -78,7 +80,7 @@ set,tset_uservar_each_target_player,u_d#,u_d#,*,u_d#
 set,tset_uservar_each_target_player,u_d#,u_dx#,+,u_d#
 target,ttrg_players_prune,u_d#,<=,u_radsq
 condition,tcond_player_target_count,>,0
-quickPattern,tpat_hb_square_set_var,varIndex,0,amount,3
+quickPattern,tpat_hb_square_set_var,varIndex,0,amount,1
 quickPattern,tpat_hb_square_set_var,varIndex,3,amount,1
 condition,tcond_eval,u_count,>,0
 set,tset_uservar,u_count,u_count,-,1
@@ -213,35 +215,63 @@ quickPattern,tpat_hb_square_set_var,varIndex,1,amount,0
 
 it_bunny_thumpers,6
 trigger,distanceTickBattle
+"build stacks on rabbitleap in a downwards direction. Release if not further down"
 target,ttrg_hotbarslot_self
 target,ttrg_player_self
 set,tset_uservar,u_lasty,ths0_vars0
 set,tset_uservar_sqvar,u_0,0
-set,tset_uservar,u_0,u_0,+,1
+set,tset_uservar,u_0plus,u_0,+,1
 quickPattern,tpat_hb_set_var,varIndex,0,amount,tp0_ypos
-quickPattern,tpat_hb_square_set_var,varIndex,0,amount,0
-condition,tcond_eval,tp0_ypos,>,u_lasty
-quickPattern,tpat_hb_square_set_var,varIndex,0,amount,u_0
-
-trigger,regenTick
-target,ttrg_hotbarslot_self
-target,ttrg_player_self
+quickPattern,tpat_hb_square_set_var,varIndex,0,amount,u_0plus
 condition,tcond_eval,tp0_ypos,<=,u_lasty
 quickPattern,tpat_hb_square_set_var,varIndex,0,amount,0
+condition,tcond_eval,u_0,>,0
+quickPattern,tpat_hb_flash_item
+set,tset_uservar,u_rad,u_0,*,50
+set,tset_uservar,u_x,tp0_xpos
+set,tset_uservar,u_y,tp0_ypos
+target,ttrg_players_opponent
+set,tset_strength_def
+addPattern,ipat_black_wakizashi,fx,u_x,fy,u_y,number,u_0,radius,u_rad
+condition,tcond_eval,u_0,>,2
+set,tset_strength,0
+addPattern,ipat_bruiser_2,number,u_0,radius,u_rad
 
-trigger,standingStillBattle
+trigger,regenTick
+"Release if not more down"
 target,ttrg_hotbarslot_self
 target,ttrg_player_self
 set,tset_uservar_sqvar,u_0,0
-quickPattern,tpat_hb_set_var,varIndex,0,amount,tp0_ypos
-condition,tcond_eval,tp0_ypos,>,u_lasty
+set,tset_uservar,u_lasty,ths0_vars0
+condition,tcond_eval,tp0_ypos,<=,u_lasty
+quickPattern,tpat_hb_square_set_var,varIndex,0,amount,0
+condition,tcond_eval,u_0,>,0
+quickPattern,tpat_hb_flash_item
+set,tset_uservar,u_rad,u_0,*,50
+set,tset_uservar,u_x,tp0_xpos
+set,tset_uservar,u_y,tp0_ypos
+target,ttrg_players_opponent
+set,tset_strength_def
+addPattern,ipat_black_wakizashi,fx,u_x,fy,u_y,number,u_0,radius,u_rad
+condition,tcond_eval,u_0,>,2
+set,tset_strength,0
+addPattern,ipat_bruiser_2,number,u_0,radius,u_rad
+
+
+trigger,standingStillBattle
+"Release if not further down"
+target,ttrg_hotbarslot_self
+target,ttrg_player_self
+set,tset_uservar_sqvar,u_0,0
 condition,tcond_eval,u_0,>,0
 quickPattern,tpat_hb_flash_item
 quickPattern,tpat_hb_square_set_var,varIndex,0,amount,0
 set,tset_uservar,u_rad,u_0,*,50
+set,tset_uservar,u_x,tp0_xpos
+set,tset_uservar,u_y,tp0_ypos
 target,ttrg_players_opponent
 set,tset_strength_def
-addPattern,ipat_hblade_0,number,u_0,radius,u_rad
+addPattern,ipat_black_wakizashi,fx,u_x,fy,u_y,number,u_0,radius,u_rad
 condition,tcond_eval,u_0,>,2
 set,tset_strength,0
 addPattern,ipat_bruiser_2,number,u_0,radius,u_rad
@@ -249,6 +279,7 @@ addPattern,ipat_bruiser_2,number,u_0,radius,u_rad
 
 it_xp_pellet,7
 trigger,onSquarePickup,tcond_square_self
+"sq0 = counter, sq1 = pellet x, sq2 = pellet y, sq3 = enabled"
 quickPattern,tpat_hb_square_set_var,varIndex,0,amount,0
 quickPattern,tpat_hb_square_set_var,varIndex,1,amount,0
 quickPattern,tpat_hb_square_set_var,varIndex,2,amount,0
@@ -309,6 +340,7 @@ quickPattern,tpat_hb_flash_item
 
 it_super_finder,8
 trigger,onSquarePickup,tcond_square_self
+"sq0 = glow, sq1 = cache x, sq2 = cache y"
 quickPattern,tpat_hb_square_set_var,varIndex,1,amount,0
 quickPattern,tpat_hb_square_set_var,varIndex,2,amount,0
 
