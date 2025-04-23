@@ -13,6 +13,7 @@ addPattern,ipat_hblade_1,number,3,delay,250
 
 it_phoenix_feather,1
 trigger,onSquarePickup,tcond_square_self
+quickPattern,ipat_heal_light_maxhealth,amount,1
 target,ttrg_player_self
 set,tset_uservar,u_x,tp0_xpos
 set,tset_uservar,u_y,tp0_ypos
