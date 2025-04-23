@@ -125,7 +125,7 @@ quickPattern,tpat_hb_set_var,varIndex,0,amount,0
 
 trigger,regenTick,tcond_hb_available
 target,ttrg_hotbarslots_self
-condition,tcond_equal,ths0_vars0,0
+condition,tcond_equal,r_vars0,0
 quickPattern,tpat_hb_cdloot_proc
 quickPattern,tpat_hb_set_var,varIndex,0,amount,1
 quickPattern,tpat_hb_flash_item
@@ -133,6 +133,8 @@ target,ttrg_hotbarslots_self_weapontype,weaponType.primary
 quickPattern,tpat_hb_charge,num,1,maxNum,1,type,chargeTypes.omegacharge
 
 trigger,hotbarUsedProc,tcond_hb_primary
+set,tset_uservar,u_notYetChargedButNoCD,r_cdSecLeft,+,r_vars0
+condition,tcond_eval,u_notYetChargedButNoCD,">",0
 quickPattern,tpat_hb_run_cooldown
 target,ttrg_hotbarslots_self
 quickPattern,tpat_hb_set_var,varIndex,0,amount,0
