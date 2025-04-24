@@ -327,3 +327,15 @@ condition,tcond_eval,u_0,>,2
 set,tset_strength,0
 addPattern,ipat_bruiser_2,number,u_0,radius,u_rad
 
+
+it_flame_emblem,7
+trigger,standingStillBattle,tcond_hb_available
+set,tset_hbskey,hbs_stoneskin,1500
+quickPattern,ipat_apply_hbs
+quickPattern,tpat_hb_run_cooldown
+quickPattern,tpat_hb_flash_item
+
+trigger,hbsShield0,tcond_pl_self
+set,tset_hbskey,hbs_counter,8000
+quickPattern,ipat_apply_hbs
+quickPattern,tpat_hb_flash_item
