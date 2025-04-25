@@ -226,7 +226,7 @@ quickPattern,tpat_hb_square_set_var,varIndex,1,amount,1
 quickPattern,tpat_hb_run_cooldown
 set,tset_colorpalette,343
 target,ttrg_player_self
-"165 degree angle"
+"165 degree angle (+ arbitrary tuning)"
 set,tset_uservar_each_target_player,u_fx,tp0_xpos,-,338
 set,tset_uservar_each_target_player,u_fy,tp0_ypos,-,90
 target,ttrg_players_opponent
@@ -241,7 +241,7 @@ quickPattern,tpat_hb_square_set_var,varIndex,1,amount,1
 quickPattern,tpat_hb_run_cooldown
 set,tset_colorpalette,323
 target,ttrg_player_self
-"285 degree angle"
+"285 degree angle (+ arbitrary tuning)"
 set,tset_uservar_each_target_player,u_fx,tp0_xpos,+,180
 set,tset_uservar_each_target_player,u_fy,tp0_ypos,+,160
 target,ttrg_players_opponent
@@ -255,7 +255,7 @@ quickPattern,tpat_hb_square_set_var,varIndex,0,amount,1
 quickPattern,tpat_hb_square_set_var,varIndex,1,amount,0
 quickPattern,tpat_hb_run_cooldown
 target,ttrg_player_self
-"45 degree angle"
+"45 degree angle (+ arbitrary tuning)"
 set,tset_uservar_each_target_player,u_fx,tp0_xpos,+,248
 set,tset_uservar_each_target_player,u_fy,tp0_ypos,-,120
 target,ttrg_players_opponent
