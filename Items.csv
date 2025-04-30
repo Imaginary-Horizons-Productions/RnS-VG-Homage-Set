@@ -207,58 +207,60 @@ quickPattern,tpat_hb_square_set_var,varIndex,0,amount,0
 
 
 it_blob_capsule,5
-trigger,onSquarePickup
+trigger,onSquarePickup,tcond_square_self
+"blob attack position rotates 120 degress each time clockwise starting from 45 degrees"
 "sqVar0 = next ability index"
 "sqVar1 = was charged this proc"
-"sqVar2 = is disabled while out of combat"
-condition,tcond_square_self
 "tpat_hb_square_set_var implicitly targets the recieving loot"
 quickPattern,tpat_hb_square_set_var,varIndex,1,amount,0
 quickPattern,tpat_hb_square_set_var,varIndex,2,amount,1
 
-trigger,battleStart0
-"tpat_hb_square_set_var and tpat_hb_run_cooldown_ext implicitly target the recieving loot"
-quickPattern,tpat_hb_square_set_var,varIndex,2,amount,0
+trigger,battleStart3
+"tpat_hb_run_cooldown_ext implicitly targets the recieving loot"
 quickPattern,tpat_hb_run_cooldown_ext,length,1000
 
-trigger,battleEnd1
-"tpat_hb_square_set_var implicitly targets the recieving loot"
-quickPattern,tpat_hb_square_set_var,varIndex,2,amount,1
-
 trigger,hotbarUsed,tcond_hb_self
-condition,tcond_hb_check_square_var,2,0
 condition,tcond_hb_check_square_var,0,2
 quickPattern,tpat_hb_square_set_var,varIndex,0,amount,0
 quickPattern,tpat_hb_square_set_var,varIndex,1,amount,1
 quickPattern,tpat_hb_run_cooldown
-target,ttrg_hotbarslots_self_weapontype,weaponType.special
-quickPattern,tpat_hb_charge,num,1,maxNum,1,type,chargeTypes.ultracharge
 set,tset_colorpalette,343
-addPattern,ipat_hydrous_blob
+target,ttrg_player_self
+"165 degree angle (+ arbitrary tuning)"
+set,tset_uservar_each_target_player,u_fx,tp0_xpos,-,338
+set,tset_uservar_each_target_player,u_fy,tp0_ypos,-,90
+target,ttrg_players_opponent
+set,tset_strength_def
+addPattern,ipat_hydrous_blob,fx,u_fx,fy,u_fy,radius,150
 
 trigger,hotbarUsed2,tcond_hb_self
-condition,tcond_hb_check_square_var,2,0
 condition,tcond_hb_check_square_var,1,0
 condition,tcond_hb_check_square_var,0,1
 quickPattern,tpat_hb_square_set_var,varIndex,0,amount,2
 quickPattern,tpat_hb_square_set_var,varIndex,1,amount,1
 quickPattern,tpat_hb_run_cooldown
-target,ttrg_hotbarslots_self_weapontype,weaponType.secondary
-quickPattern,tpat_hb_charge,num,1,maxNum,1,type,chargeTypes.ultracharge
 set,tset_colorpalette,323
-addPattern,ipat_hydrous_blob
+target,ttrg_player_self
+"285 degree angle (+ arbitrary tuning)"
+set,tset_uservar_each_target_player,u_fx,tp0_xpos,+,180
+set,tset_uservar_each_target_player,u_fy,tp0_ypos,+,160
+target,ttrg_players_opponent
+set,tset_strength_def
+addPattern,ipat_hydrous_blob,fx,u_fx,fy,u_fy,radius,150
 
 trigger,hotbarUsed3,tcond_hb_self
-condition,tcond_hb_check_square_var,2,0
 condition,tcond_hb_check_square_var,1,0
 condition,tcond_hb_check_square_var,0,0
 quickPattern,tpat_hb_square_set_var,varIndex,0,amount,1
 quickPattern,tpat_hb_square_set_var,varIndex,1,amount,0
 quickPattern,tpat_hb_run_cooldown
-target,ttrg_hotbarslots_self_weapontype,weaponType.primary
-quickPattern,tpat_hb_charge,num,1,maxNum,1,type,chargeTypes.ultracharge
-set,tset_colorpalette,338
-addPattern,ipat_hydrous_blob
+target,ttrg_player_self
+"45 degree angle (+ arbitrary tuning)"
+set,tset_uservar_each_target_player,u_fx,tp0_xpos,+,248
+set,tset_uservar_each_target_player,u_fy,tp0_ypos,-,120
+target,ttrg_players_opponent
+set,tset_strength_def
+addPattern,ipat_hydrous_blob,fx,u_fx,fy,u_fy,radius,150
 
 trigger,hotbarUsed3,tcond_hb_self
 quickPattern,tpat_hb_square_set_var,varIndex,1,amount,0
