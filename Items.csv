@@ -135,6 +135,8 @@ target,ttrg_hotbarslots_self
 quickPattern,tpat_hb_set_var,varIndex,0,amount,0
 
 trigger,regenTick,tcond_hb_available
+"early out if not in battle, to avoid flashing item during shopping"
+condition,tcond_pl_autocheck
 target,ttrg_hotbarslots_self
 condition,tcond_equal,r_vars0,0
 quickPattern,tpat_hb_cdloot_proc
