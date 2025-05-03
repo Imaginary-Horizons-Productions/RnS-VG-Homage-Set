@@ -24,7 +24,7 @@ quickPattern,tpat_hb_square_set_var,varIndex,3,amount,0
 trigger,autoStart,tcond_hb_auto_pl
 quickPattern,tpat_hb_set_var,varIndex,0,amount,0,"set true for debugging solo",0
 
-trigger,standingStillBattle
+trigger,standingStillBattle,tcond_pl_self
 "standing still spends embers, only enable when there's a valid target"
 condition,tcond_hb_available
 set,tset_uservar,u_radsq,150,*,150
@@ -187,7 +187,7 @@ quickPattern,tpat_hb_square_set_var,varIndex,0,amount,0
 condition,tcond_eval,u_d,<=,100000
 quickPattern,tpat_hb_square_set_var,varIndex,0,amount,1
 
-trigger,standingStillBattle
+trigger,standingStillBattle,tcond_pl_self
 target,ttrg_hotbarslot_self
 target,ttrg_player_self
 set,tset_uservar_sqvar,u_x,1
@@ -276,7 +276,7 @@ quickPattern,tpat_hb_square_set_var,varIndex,1,amount,0
 
 
 it_bunny_thumpers,6
-trigger,distanceTickBattle
+trigger,distanceTickBattle,tcond_pl_self
 "build stacks on rabbitleap in a downwards direction. Release if not further down"
 target,ttrg_hotbarslot_self
 target,ttrg_player_self
@@ -320,7 +320,7 @@ set,tset_strength,0
 addPattern,ipat_bruiser_2,number,u_0,radius,u_rad
 
 
-trigger,standingStillBattle
+trigger,standingStillBattle,tcond_pl_self
 "Release if not further down"
 target,ttrg_hotbarslot_self
 target,ttrg_player_self
@@ -340,7 +340,7 @@ addPattern,ipat_bruiser_2,number,u_0,radius,u_rad
 
 
 it_flame_emblem,7
-trigger,standingStillBattle,tcond_hb_available
+trigger,standingStillBattle,tcond_hb_available,tcond_pl_self
 set,tset_hbskey,hbs_stoneskin,1500
 quickPattern,ipat_apply_hbs
 quickPattern,tpat_hb_run_cooldown
