@@ -288,62 +288,61 @@ trigger,distanceTickBattle,tcond_pl_self
 target,ttrg_hotbarslot_self
 target,ttrg_player_self
 set,tset_uservar,u_lasty,ths0_vars0
-set,tset_uservar_sqvar,u_0,0
+set,tset_uservar,u_0,ths0_vars1
 set,tset_uservar,u_0plus,u_0,+,1
 quickPattern,tpat_hb_set_var,varIndex,0,amount,tp0_ypos
-quickPattern,tpat_hb_square_set_var,varIndex,0,amount,u_0plus
+quickPattern,tpat_hb_set_var,varIndex,1,amount,u_0plus
+set,tset_uservar_switch,u_glowing,u_0plus,1,0,0,1,0
+quickPattern,tpat_hb_square_set_var,varIndex,0,amount,u_glowing
 condition,tcond_eval,tp0_ypos,<=,u_lasty
+quickPattern,tpat_hb_set_var,varIndex,1,amount,0
 quickPattern,tpat_hb_square_set_var,varIndex,0,amount,0
-condition,tcond_eval,u_0,>,0
+condition,tcond_eval,u_0,>,1
 quickPattern,tpat_hb_flash_item
-set,tset_uservar,u_rad,u_0,*,50
 set,tset_uservar,u_x,tp0_xpos
 set,tset_uservar,u_y,tp0_ypos
 target,ttrg_players_opponent
 set,tset_strength_def
-addPattern,ipat_black_wakizashi,fx,u_x,fy,u_y,number,u_0,radius,u_rad
-condition,tcond_eval,u_0,>,2
+addPattern,ipat_black_wakizashi,fx,u_x,fy,u_y
 set,tset_strength,0
-addPattern,ipat_bruiser_2,number,u_0,radius,u_rad
+addPattern,ipat_bruiser_2,number,1
 
 trigger,regenTick
 "Release if not more down"
 target,ttrg_hotbarslot_self
 target,ttrg_player_self
-set,tset_uservar_sqvar,u_0,0
+set,tset_uservar,u_0,ths0_vars1
 set,tset_uservar,u_lasty,ths0_vars0
 condition,tcond_eval,tp0_ypos,<=,u_lasty
+quickPattern,tpat_hb_set_var,varIndex,1,amount,0
 quickPattern,tpat_hb_square_set_var,varIndex,0,amount,0
-condition,tcond_eval,u_0,>,0
+condition,tcond_eval,u_0,>,1
 quickPattern,tpat_hb_flash_item
-set,tset_uservar,u_rad,u_0,*,50
 set,tset_uservar,u_x,tp0_xpos
 set,tset_uservar,u_y,tp0_ypos
 target,ttrg_players_opponent
 set,tset_strength_def
-addPattern,ipat_black_wakizashi,fx,u_x,fy,u_y,number,u_0,radius,u_rad
-condition,tcond_eval,u_0,>,2
+addPattern,ipat_black_wakizashi,fx,u_x,fy,u_y
 set,tset_strength,0
-addPattern,ipat_bruiser_2,number,u_0,radius,u_rad
+addPattern,ipat_bruiser_2,number,1
 
 
 trigger,standingStillBattle,tcond_pl_self
 "Release if not further down"
 target,ttrg_hotbarslot_self
 target,ttrg_player_self
-set,tset_uservar_sqvar,u_0,0
-condition,tcond_eval,u_0,>,0
-quickPattern,tpat_hb_flash_item
+quickPattern,tpat_hb_set_var,varIndex,1,amount,0
 quickPattern,tpat_hb_square_set_var,varIndex,0,amount,0
-set,tset_uservar,u_rad,u_0,*,50
+set,tset_uservar,u_0,ths0_vars1
+condition,tcond_eval,u_0,>,1
+quickPattern,tpat_hb_flash_item
 set,tset_uservar,u_x,tp0_xpos
 set,tset_uservar,u_y,tp0_ypos
 target,ttrg_players_opponent
 set,tset_strength_def
-addPattern,ipat_black_wakizashi,fx,u_x,fy,u_y,number,u_0,radius,u_rad
-condition,tcond_eval,u_0,>,2
+addPattern,ipat_black_wakizashi,fx,u_x,fy,u_y
 set,tset_strength,0
-addPattern,ipat_bruiser_2,number,u_0,radius,u_rad
+addPattern,ipat_bruiser_2,number,1
 
 
 it_sword_smasher,7
