@@ -233,16 +233,17 @@ condition,tcond_hb_check_square_var,0,2
 quickPattern,tpat_hb_square_set_var,varIndex,0,amount,0
 quickPattern,tpat_hb_square_set_var,varIndex,1,amount,1
 quickPattern,tpat_hb_run_cooldown
+quickPattern,tpat_hb_flash_item
 set,tset_colorpalette,323
 target,ttrg_player_self
 "165 degree angle"
 set,tset_uservar_each_target_player,u_fx,tp0_xpos,-,338
 set,tset_uservar_each_target_player,u_fy,tp0_ypos,-,90
-addPattern,ipat_hydrous_blob
+addPattern,ipat_hydrous_blob,fx,u_fx,fy,u_fy
 addPattern,ipat_floral_bow,radius,200,fx,u_fx,fy,u_fy
 target,ttrg_players_opponent
 set,tset_strength_def
-addPattern,ipat_potion_throw,radius,150,fx,u_fx,fy,u_fy
+addPattern,ipat_darkmagic_blade,radius,150,x,u_fx,y,u_fy
 
 trigger,hotbarUsed2,tcond_hb_self
 condition,tcond_hb_check_square_var,1,0
@@ -250,16 +251,17 @@ condition,tcond_hb_check_square_var,0,1
 quickPattern,tpat_hb_square_set_var,varIndex,0,amount,2
 quickPattern,tpat_hb_square_set_var,varIndex,1,amount,1
 quickPattern,tpat_hb_run_cooldown
+quickPattern,tpat_hb_flash_item
 set,tset_colorpalette,338
 target,ttrg_player_self
 "285 degree angle"
 set,tset_uservar_each_target_player,u_fx,tp0_xpos,+,90
 set,tset_uservar_each_target_player,u_fy,tp0_ypos,+,338
-addPattern,ipat_hydrous_blob
+addPattern,ipat_hydrous_blob,fx,u_fx,fy,u_fy
 addPattern,ipat_floral_bow,radius,200,fx,u_fx,fy,u_fy
 target,ttrg_players_opponent
 set,tset_strength_def
-addPattern,ipat_potion_throw,radius,150,fx,u_fx,fy,u_fy
+addPattern,ipat_darkmagic_blade,radius,150,x,u_fx,y,u_fy
 
 trigger,hotbarUsed3,tcond_hb_self
 condition,tcond_hb_check_square_var,1,0
@@ -267,16 +269,17 @@ condition,tcond_hb_check_square_var,0,0
 quickPattern,tpat_hb_square_set_var,varIndex,0,amount,1
 quickPattern,tpat_hb_square_set_var,varIndex,1,amount,0
 quickPattern,tpat_hb_run_cooldown
+quickPattern,tpat_hb_flash_item
 set,tset_colorpalette,485
 target,ttrg_player_self
 "45 degree angle"
 set,tset_uservar_each_target_player,u_fx,tp0_xpos,+,248
 set,tset_uservar_each_target_player,u_fy,tp0_ypos,-,248
-addPattern,ipat_hydrous_blob
+addPattern,ipat_hydrous_blob,fx,u_fx,fy,u_fy
 addPattern,ipat_floral_bow,radius,200,fx,u_fx,fy,u_fy
 target,ttrg_players_opponent
 set,tset_strength_def
-addPattern,ipat_potion_throw,radius,150,fx,u_fx,fy,u_fy
+addPattern,ipat_darkmagic_blade,radius,150,x,u_fx,y,u_fy
 
 trigger,hotbarUsed3,tcond_hb_self
 quickPattern,tpat_hb_square_set_var,varIndex,1,amount,0
