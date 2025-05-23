@@ -10,18 +10,17 @@ This mod adds a loot set to Rabbit & Steel that pays homage to various other vid
 ![icons](https://github.com/Imaginary-Horizons-Productions/RnS-VG-Homage-Set/blob/main/Items.png)
 ### Life Sword
 Your Primary does 10% more damage.
-While you are at full HP, your Primary shoots a sword beam that deals 120 damage to enemies.
+While you are at full HP, your Primary shoots a sword beam that deals 150 damage to enemies.
 
 ### Phoenix Feather
 Your max HP is increased by 1.
-Every 25 seconds, a Phoenix Ember will spawn in a random spot. Starts on cooldown.
+Every 25 seconds, a Phoenix Ember will spawn in a random spot.
 Gather embers by touching them.
 Stand still to use all embers to revive a random nearby rabbit with 1 HP per ember consumed.
 
 ### Heavy Lightshield
 Your max HP is reduced by 1.
-When you use your Defensive, gain [GRANITESKIN].
-Starts battle on cooldown.
+When you use your Defensive, gain [GRANITESKIN]. Starts battle on cooldown.
 This item's cooldown is set to 15 seconds when you are shielded or take damage.
 
 ### Omega Buster
@@ -33,12 +32,12 @@ This item's cooldown is set to 3 seconds when you use your Primary.
 The Treasure Digger glows when you are near a hidden [SUPER] cache. Stand still to unearth the cache.
 
 ### Blob Capsule
-Every 8 seconds unleash an eldritch beast that makes a 250 damage attack near you.
+Every 8 seconds unleash an eldritch beast that makes a 300 damage attack near you.
 There are 3 different beasts whose attack locations rotate around you in clockwise order.
 
 ### Bunny Thumpers
-Moving down builds Falling Stacks. When no longer moving down, consume all Falling Stacks and deal 90 damage to nearby enemies for each stack consumed.
+Moving down 3 rabbitleaps to make three 90 damage attacks on nearby enemies. Ability and loot effects that temporarily slow your movement no longer effect you.
 
 ### Flame Emblem
-While standing still, gain 1.5 seconds of [STONESKIN] (a buff that shields you from damage once).
-Gain [COUNTER] when you are hit (shielded or not).
+Every 15 seconds, while standing still, gain 1.5 seconds of [STONESKIN] (a buff that shields you from damage once).
+When you are shielded or take damage, gain [COUNTER] and reduce your Special's cooldown by 2 seconds.
