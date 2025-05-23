@@ -20,7 +20,7 @@ Stand still to use all embers to revive a random nearby rabbit with 1 HP per emb
 
 ### Heavy Lightshield
 Your max HP is reduced by 1.
-When you use your Defensive, gain [GRANITESKIN]. Starts battle on cooldown.
+Every 15 seconds, gain [GRANITESKIN]. Starts battle on cooldown.
 This item's cooldown is set to 15 seconds when you are shielded or take damage.
 
 ### Omega Buster
