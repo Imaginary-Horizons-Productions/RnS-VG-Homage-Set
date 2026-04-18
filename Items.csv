@@ -201,7 +201,7 @@ set,tset_uservar_each_target_player,u_d,tp0_ypos,-,u_y
 set,tset_uservar_each_target_player,u_dx,u_dx,*,u_dx,+,u_d
 set,tset_uservar_each_target_player,u_d,u_d,*,u_d
 set,tset_uservar_each_target_player,u_d,u_dx,+,u_d
-condition,tcond_eval,u_d,<=,20000
+condition,tcond_eval,u_d,<=,100000
 quickPattern,tpat_hb_flash_item
 set,tset_hbs_def
 addPattern,ipat_apply_hbs
