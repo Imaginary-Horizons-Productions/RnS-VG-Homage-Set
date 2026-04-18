@@ -38,6 +38,6 @@ There are 3 different beasts whose attack locations rotate around you in clockwi
 ### Bunny Thumpers
 Moving down 3 rabbitleaps to make three 90 damage attacks on nearby enemies. Ability and loot effects that temporarily slow your movement no longer effect you.
 
-### Flame Emblem
+### Sword Smasher
 Every 15 seconds, while standing still, gain 1.5 seconds of [STONESKIN] (a buff that shields you from damage once).
 When you are shielded or take damage, gain [COUNTER] and reduce your Special's cooldown by 2 seconds.
