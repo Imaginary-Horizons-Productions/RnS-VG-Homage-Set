@@ -1,4 +1,4 @@
-spriteNumber,8
+spriteNumber,10
 
 
 it_life_sword,0
@@ -212,77 +212,7 @@ quickPattern,tpat_hb_square_set_var,varIndex,2,amount,u_y
 quickPattern,tpat_hb_square_set_var,varIndex,0,amount,0
 
 
-it_blob_capsule,5
-trigger,onSquarePickup,tcond_square_self
-"blob attack position rotates 120 degress each time clockwise starting from 45 degrees"
-"sqVar0 = next ability index"
-"sqVar1 = was charged this proc"
-"tpat_hb_square_set_var implicitly targets the recieving loot"
-quickPattern,tpat_hb_square_set_var,varIndex,1,amount,0
-quickPattern,tpat_hb_square_set_var,varIndex,2,amount,1
-
-trigger,battleStart3
-"tpat_hb_run_cooldown_ext implicitly targets the recieving loot"
-quickPattern,tpat_hb_run_cooldown_ext,length,1000
-
-trigger,hotbarUsed,tcond_hb_self
-condition,tcond_hb_check_square_var,0,2
-quickPattern,tpat_hb_square_set_var,varIndex,0,amount,0
-quickPattern,tpat_hb_square_set_var,varIndex,1,amount,1
-quickPattern,tpat_hb_run_cooldown
-quickPattern,tpat_hb_flash_item
-set,tset_colorpalette,323
-target,ttrg_player_self
-"165 degree angle"
-set,tset_uservar_each_target_player,u_fx,tp0_xpos,-,338
-set,tset_uservar_each_target_player,u_fy,tp0_ypos,-,90
-addPattern,ipat_hydrous_blob,fx,u_fx,fy,u_fy
-addPattern,ipat_floral_bow,radius,200,fx,u_fx,fy,u_fy
-target,ttrg_players_opponent
-set,tset_strength_def
-addPattern,ipat_darkmagic_blade,radius,150,x,u_fx,y,u_fy
-
-trigger,hotbarUsed2,tcond_hb_self
-condition,tcond_hb_check_square_var,1,0
-condition,tcond_hb_check_square_var,0,1
-quickPattern,tpat_hb_square_set_var,varIndex,0,amount,2
-quickPattern,tpat_hb_square_set_var,varIndex,1,amount,1
-quickPattern,tpat_hb_run_cooldown
-quickPattern,tpat_hb_flash_item
-set,tset_colorpalette,338
-target,ttrg_player_self
-"285 degree angle"
-set,tset_uservar_each_target_player,u_fx,tp0_xpos,+,90
-set,tset_uservar_each_target_player,u_fy,tp0_ypos,+,338
-addPattern,ipat_hydrous_blob,fx,u_fx,fy,u_fy
-addPattern,ipat_floral_bow,radius,200,fx,u_fx,fy,u_fy
-target,ttrg_players_opponent
-set,tset_strength_def
-addPattern,ipat_darkmagic_blade,radius,150,x,u_fx,y,u_fy
-
-trigger,hotbarUsed3,tcond_hb_self
-condition,tcond_hb_check_square_var,1,0
-condition,tcond_hb_check_square_var,0,0
-quickPattern,tpat_hb_square_set_var,varIndex,0,amount,1
-quickPattern,tpat_hb_square_set_var,varIndex,1,amount,0
-quickPattern,tpat_hb_run_cooldown
-quickPattern,tpat_hb_flash_item
-set,tset_colorpalette,485
-target,ttrg_player_self
-"45 degree angle"
-set,tset_uservar_each_target_player,u_fx,tp0_xpos,+,248
-set,tset_uservar_each_target_player,u_fy,tp0_ypos,-,248
-addPattern,ipat_hydrous_blob,fx,u_fx,fy,u_fy
-addPattern,ipat_floral_bow,radius,200,fx,u_fx,fy,u_fy
-target,ttrg_players_opponent
-set,tset_strength_def
-addPattern,ipat_darkmagic_blade,radius,150,x,u_fx,y,u_fy
-
-trigger,hotbarUsed3,tcond_hb_self
-quickPattern,tpat_hb_square_set_var,varIndex,1,amount,0
-
-
-it_bunny_thumpers,6
+it_bunny_thumpers,5
 trigger,onSquarePickup,tcond_square_self
 "sqVar0 = rabbitleap stacks"
 "sqVar1 = last y"
@@ -316,7 +246,7 @@ trigger,standingStillBattle,tcond_pl_self
 quickPattern,tpat_hb_square_set_var,varIndex,0,amount,0
 
 
-it_sword_smasher,7
+it_sword_smasher,6
 trigger,standingStillBattle,tcond_hb_available,tcond_pl_self
 set,tset_hbskey,hbs_stoneskin,1500
 quickPattern,ipat_apply_hbs
@@ -329,3 +259,82 @@ quickPattern,ipat_apply_hbs
 target,ttrg_hotbarslots_self_weapontype,weaponType.special
 quickPattern,tpat_hb_add_cooldown,amount,-2000
 quickPattern,tpat_hb_flash_item
+
+
+it_blob_capsule_r,7
+trigger,onSquarePickup,tcond_square_self
+"blob attack position rotates 120 degress each time clockwise starting from 45 degrees"
+quickPattern,tpat_hb_square_set_var,varIndex,0,amount,1
+
+trigger,battleStart3
+"tpat_hb_run_cooldown_ext implicitly targets the recieving loot"
+quickPattern,tpat_hb_run_cooldown_ext,length,1000
+
+trigger,hotbarUsed,tcond_hb_self
+quickPattern,tpat_hb_run_cooldown
+quickPattern,tpat_hb_flash_item
+set,tset_colorpalette,485
+target,ttrg_player_self
+"45 degree angle"
+set,tset_uservar_each_target_player,u_fx,tp0_xpos,+,248
+set,tset_uservar_each_target_player,u_fy,tp0_ypos,-,248
+addPattern,ipat_hydrous_blob,fx,u_fx,fy,u_fy
+addPattern,ipat_floral_bow,radius,200,fx,u_fx,fy,u_fy
+target,ttrg_players_opponent
+set,tset_strength_def
+addPattern,ipat_darkmagic_blade,radius,150,x,u_fx,y,u_fy
+set,tset_transform_key,it_blob_capsule_b
+quickPattern,tpat_hb_transform_item
+quickPatterntpat_player_flash_item_transform
+
+it_blob_capsule_b,8
+trigger,onSquarePickup,tcond_square_self
+"blob attack position rotates 120 degress each time clockwise starting from 285 degrees"
+quickPattern,tpat_hb_square_set_var,varIndex,0,amount,1
+
+trigger,battleStart3
+"tpat_hb_run_cooldown_ext implicitly targets the recieving loot"
+quickPattern,tpat_hb_run_cooldown_ext,length,1000
+
+trigger,hotbarUsed,tcond_hb_self
+quickPattern,tpat_hb_run_cooldown
+quickPattern,tpat_hb_flash_item
+set,tset_colorpalette,338
+target,ttrg_player_self
+"285 degree angle"
+set,tset_uservar_each_target_player,u_fx,tp0_xpos,+,90
+set,tset_uservar_each_target_player,u_fy,tp0_ypos,+,338
+addPattern,ipat_hydrous_blob,fx,u_fx,fy,u_fy
+addPattern,ipat_floral_bow,radius,200,fx,u_fx,fy,u_fy
+target,ttrg_players_opponent
+set,tset_strength_def
+addPattern,ipat_darkmagic_blade,radius,150,x,u_fx,y,u_fy
+set,tset_transform_key,it_blob_capsule_p
+quickPattern,tpat_hb_transform_item
+quickPatterntpat_player_flash_item_transform
+
+it_blob_capsule_p,9
+trigger,onSquarePickup,tcond_square_self
+"blob attack position rotates 120 degress each time clockwise starting from 165 degrees"
+quickPattern,tpat_hb_square_set_var,varIndex,0,amount,1
+
+trigger,battleStart3
+"tpat_hb_run_cooldown_ext implicitly targets the recieving loot"
+quickPattern,tpat_hb_run_cooldown_ext,length,1000
+
+trigger,hotbarUsed,tcond_hb_self
+quickPattern,tpat_hb_run_cooldown
+quickPattern,tpat_hb_flash_item
+set,tset_colorpalette,323
+target,ttrg_player_self
+"165 degree angle"
+set,tset_uservar_each_target_player,u_fx,tp0_xpos,-,338
+set,tset_uservar_each_target_player,u_fy,tp0_ypos,-,90
+addPattern,ipat_hydrous_blob,fx,u_fx,fy,u_fy
+addPattern,ipat_floral_bow,radius,200,fx,u_fx,fy,u_fy
+target,ttrg_players_opponent
+set,tset_strength_def
+addPattern,ipat_darkmagic_blade,radius,150,x,u_fx,y,u_fy
+set,tset_transform_key,it_blob_capsule_r
+quickPattern,tpat_hb_transform_item
+quickPatterntpat_player_flash_item_transform
