@@ -2,7 +2,16 @@ spriteNumber,10
 
 
 it_life_sword,0
+trigger,onSquarePickup,tcond_square_self
+"sq0 = is rabbit at full HP"
+"on pick-up, calc sq0"
+quickPattern,tpat_hb_square_set_var,varIndex,0,amount,0
+target,ttrg_player_self
+condition,tcond_equal,tp0_hpMax,tp0_hp
+quickPattern,tpat_hb_square_set_var,varIndex,0,amount,1
+
 trigger,hotbarUsedProc
+"on Primary, if sq0, shoot sword beam"
 target,ttrg_player_self
 condition,tcond_hb_primary
 condition,tcond_equal,tp0_hpMax,tp0_hp
@@ -10,6 +19,19 @@ target,ttrg_players_opponent
 set,tset_strength_def
 addPattern,ipat_hblade_1,number,3,delay,250
 
+trigger,onHealed,tcond_pl_self
+"on heal, calc sq0"
+quickPattern,tpat_hb_square_set_var,varIndex,0,amount,0
+target,ttrg_player_self
+condition,tcond_equal,tp0_hpMax,tp0_hp
+quickPattern,tpat_hb_square_set_var,varIndex,0,amount,1
+
+trigger,onDamage,tcond_pl_self
+"on damage, calc sq0"
+quickPattern,tpat_hb_square_set_var,varIndex,0,amount,0
+target,ttrg_player_self
+condition,tcond_equal,tp0_hpMax,tp0_hp
+quickPattern,tpat_hb_square_set_var,varIndex,0,amount,1
 
 it_phoenix_feather,1
 trigger,onSquarePickup,tcond_square_self
