@@ -13,19 +13,15 @@ addPattern,ipat_hblade_1,number,3,delay,250
 
 it_phoenix_feather,1
 trigger,onSquarePickup,tcond_square_self
-"sq0 = counter, sq1 = ember x, sq2 = ember y, sq3 = enabled"
+"sq0 = ember count"
+"on pick-up, grant Max HP boost"
 target,ttrg_player_self
 target,ttrg_hotbarslot_self
 addPattern,ipat_heal_light_maxhealth,amount,1
 quickPattern,tpat_hb_square_set_var,varIndex,0,amount,0
-quickPattern,tpat_hb_square_set_var,varIndex,1,amount,0
-quickPattern,tpat_hb_square_set_var,varIndex,2,amount,0
-quickPattern,tpat_hb_square_set_var,varIndex,3,amount,0
-trigger,autoStart,tcond_hb_auto_pl
-quickPattern,tpat_hb_set_var,varIndex,0,amount,0,"set true for debugging solo",0
 
 trigger,standingStillBattle,tcond_pl_self
-"standing still spends embers, only enable when there's a valid target"
+"on stand still, spend all embers to revive random nearby KO'd rabbit"
 set,tset_uservar,u_radsq,150,*,150
 target,ttrg_hotbarslot_self
 target,ttrg_player_self
@@ -48,59 +44,11 @@ quickPattern,tpat_hb_flash_item
 addPattern,ipat_heal_revive,amount,ths0_sqVar0,duration,3000
 quickPattern,tpat_hb_square_set_var,varIndex,0,amount,0
 
-trigger,autoStart
-"debug variant of battleStart3 (test on toybox dummy)"
-target,ttrg_hotbarslot_self
-condition,tcond_equal,ths0_vars0,1
-quickPattern,tpat_hb_square_set_var,varIndex,3,amount,1
-set,tset_uservar_random_range,u_x,200,1700
-set,tset_uservar_random_range,u_y,200,900
-quickPattern,tpat_hb_square_set_var,varIndex,1,amount,u_x
-quickPattern,tpat_hb_square_set_var,varIndex,2,amount,u_y
-
-trigger,battleEnd1
-quickPattern,tpat_hb_square_set_var,varIndex,3,amount,0
-
 trigger,battleStart3
+"on battle start, gain 1 Phoneix Ember"
 target,ttrg_hotbarslot_self
-quickPattern,tpat_hb_square_set_var,varIndex,3,amount,1
-set,tset_uservar_random_range,u_x,200,1700
-set,tset_uservar_random_range,u_y,200,900
-quickPattern,tpat_hb_square_set_var,varIndex,1,amount,u_x
-quickPattern,tpat_hb_square_set_var,varIndex,2,amount,u_y
-
-trigger,regenTick,tcond_hb_available
-"draw/pulse/render"
-set,tset_uservar_sqvar,u_enabled,3
-condition,tcond_equal,u_enabled,1
-set,tset_uservar_sqvar,u_x,1
-set,tset_uservar_sqvar,u_y,2
-target,ttrg_players_none
-addPattern,ipat_meteor_staff,x,u_x,y,u_y,fx,u_x,fy,u_y,radius,20,number,1
-set,tset_uservar_sqvar,u_x,1
-
-trigger,regenTick,tcond_hb_available
-"pickup"
-target,ttrg_hotbarslot_self
-target,ttrg_player_self
-set,tset_uservar_sqvar,u_v,0
-set,tset_uservar_sqvar,u_x,1
-set,tset_uservar_sqvar,u_y,2
-set,tset_uservar_each_target_player,u_dx,tp0_xpos,-,u_x,
-set,tset_uservar_each_target_player,u_d,tp0_ypos,-,u_y
-set,tset_uservar_each_target_player,u_dx,u_dx,*,u_dx,+,u_d
-set,tset_uservar_each_target_player,u_d,u_d,*,u_d
-set,tset_uservar_each_target_player,u_d,u_dx,+,u_d
-condition,tcond_eval,u_d,<=,10000
-quickPattern,tpat_hb_flash_item
-addPattern,ipat_apply_invuln,duration,750
-set,tset_uservar_random_range,u_x,200,1700
-set,tset_uservar_random_range,u_y,200,900
 quickPattern,tpat_hb_square_add_var,varIndex,0,amount,1
-quickPattern,tpat_hb_square_set_var,varIndex,1,amount,u_x
-quickPattern,tpat_hb_square_set_var,varIndex,2,amount,u_y
-quickPattern,tpat_hb_run_cooldown
-quickPattern,tpat_hb_cdloot_proc
+quickPattern,tpat_hb_flash_item
 
 
 it_heavy_lightshield,2
