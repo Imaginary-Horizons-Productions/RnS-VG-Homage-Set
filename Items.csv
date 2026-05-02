@@ -205,7 +205,7 @@ trigger,hbsShield0,tcond_pl_self
 set,tset_hbskey,hbs_counter,8000
 quickPattern,ipat_apply_hbs
 target,ttrg_hotbarslots_self_weapontype,weaponType.special
-quickPattern,tpat_hb_add_cooldown,amount,-2000
+quickPattern,tpat_hb_add_cooldown,amount,-5000
 quickPattern,tpat_hb_flash_item
 
 
