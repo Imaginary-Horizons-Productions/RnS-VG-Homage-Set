@@ -9,14 +9,15 @@ This mod adds a loot set to Rabbit & Steel that pays homage to various other vid
 ## Content
 ![icons](https://github.com/Imaginary-Horizons-Productions/RnS-VG-Homage-Set/blob/main/Items.png)
 ### Life Sword
-Your Primary does 10% more damage.
+Your Primary does 15% more damage.
 While you are at full HP, your Primary shoots a sword beam that deals 150 damage to enemies.
+Is SPENT while you aren't at full HP.
 
 ### Phoenix Feather
 Your max HP is increased by 1.
-Every 25 seconds, a Phoenix Ember will spawn in a random spot.
-Gather embers by touching them.
-Stand still to use all embers to revive a random nearby rabbit with 1 HP per ember consumed.
+Gain 1 Phoenix Ember when starting a battle.
+Stand still for 1 second to use all embers to revive a random nearby rabbit with 1 HP per ember consumed.
+Is SPENT while at 0 Phoenix Embers.
 
 ### Heavy Lightshield
 Your max HP is reduced by 1.
@@ -32,7 +33,7 @@ This item's cooldown is set to 3 seconds when you use your Primary.
 The Treasure Digger glows when you are near a hidden [SUPER] cache. Stand still to unearth the cache.
 
 ### Blob Capsule
-Every 8 seconds unleash an eldritch beast that makes a 300 damage attack near you.
+Every 8 seconds unleash an eldritch beast that makes a 450 damage attack near you.
 There are 3 different beasts whose attack locations rotate around you in clockwise order.
 
 ### Bunny Thumpers
@@ -40,4 +41,4 @@ Moving down 3 rabbitleaps to make three 90 damage attacks on nearby enemies. Abi
 
 ### Sword Smasher
 Every 15 seconds, while standing still, gain 1.5 seconds of [STONESKIN] (a buff that shields you from damage once).
-When you are shielded or take damage, gain [COUNTER] and reduce your Special's cooldown by 2 seconds.
+When you are shielded or take damage, gain [COUNTER] and reduce your Special's cooldown by 5 seconds.

@@ -26,6 +26,13 @@ target,ttrg_player_self
 condition,tcond_equal,tp0_hpMax,tp0_hp
 quickPattern,tpat_hb_square_set_var,varIndex,0,amount,1
 
+trigger,battleStart0
+"on battle start, calc sq0"
+quickPattern,tpat_hb_square_set_var,varIndex,0,amount,0
+target,ttrg_player_self
+condition,tcond_equal,tp0_hpMax,tp0_hp
+quickPattern,tpat_hb_square_set_var,varIndex,0,amount,1
+
 trigger,onDamage,tcond_pl_self
 "on damage, calc sq0"
 quickPattern,tpat_hb_square_set_var,varIndex,0,amount,0
